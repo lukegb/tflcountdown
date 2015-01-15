@@ -28,7 +28,7 @@ type Request struct {
 	TripID             []string
 	RegistrationNumber []string
 	StopPointIndicator []string
-	MessageType     []uint
+	MessageType        []uint
 	MessagePriority    []uint
 }
 

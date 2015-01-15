@@ -21,7 +21,6 @@ const (
 	MESSAGETYPE_URA_VERSION
 )
 
-
 type Message interface {
 	TflMessageType() TflMessageType
 	Decode(*TflArray, FieldMap) (Message, error)

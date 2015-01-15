@@ -1,8 +1,8 @@
 package tflcountdown
 
 import (
-	"net/http"
 	"log"
+	"net/http"
 	"net/url"
 )
 
@@ -60,4 +60,3 @@ func (api *InstantAPI) MakeRequest(r Request) (chan Message, chan error) {
 
 	return msgChan, errChan
 }
-
