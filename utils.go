@@ -38,6 +38,14 @@ func (f FieldMap) AddAll(x []string) {
 	}
 }
 
+func (f FieldMap) Keys() []string {
+	keys := make([]string, 0, len(f))
+	for k := range f {
+		keys = append(keys, k)
+	}
+	return keys
+}
+
 type TflArray struct {
 	currElem int
 	arr      []interface{}

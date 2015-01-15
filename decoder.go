@@ -44,9 +44,9 @@ func DecodeFromJson(baseRd io.Reader, fields FieldMap) (chan Message, chan error
 				break
 			}
 
-			if msg, err := Decode(NewTflArray(intf), fields); err != nil {
+			if msg, err := Decode(NewTflArray(intf), fields); err != nil || msg == nil {
 				errChan <- err
-				return
+				break
 			} else {
 				msgChan <- msg
 			}
