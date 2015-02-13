@@ -35,7 +35,7 @@ type BaseStopData struct {
 	StopCode2          *string
 	StopPointType      *string
 	Towards            *string
-	Bearing            *uint
+	Bearing            *float64
 	StopPointIndicator *string
 	StopPointState     *uint
 	Latitude           *float64
@@ -68,7 +68,7 @@ func (b *BaseStopData) Decode(inp *TflArray, fields FieldMap) error {
 	}
 
 	if fields.Contains("Bearing") {
-		b.Bearing = inp.AsUint()
+		b.Bearing = inp.AsFloat64()
 	}
 
 	if fields.Contains("StopPointIndicator") {

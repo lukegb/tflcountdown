@@ -52,7 +52,11 @@ func (api *InstantAPI) MakeRequest(r Request) (chan Message, chan error) {
 
 	go func() {
 		for {
-			err := <-inErrChan
+			err, more := <-inErrChan
+			if !more {
+				return
+			}
+
 			resp.Body.Close()
 			errChan <- err
 		}
