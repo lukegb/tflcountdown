@@ -122,7 +122,7 @@ type PredictionData struct {
 	DirectionID        *int
 	DestinationText    *string
 	DestinationName    *string
-	VehicleID          *string
+	VehicleID          *float64
 	TripID             *int
 	RegistrationNumber *string
 	EstimatedTime      *time.Time
@@ -162,7 +162,7 @@ func (PredictionData) Decode(inp *TflArray, fields FieldMap) (Message, error) {
 	}
 
 	if fields.Contains("VehicleID") {
-		msg.VehicleID = inp.AsStr()
+		msg.VehicleID = inp.AsFloat64()
 	}
 
 	if fields.Contains("TripID") {
